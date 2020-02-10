@@ -36,8 +36,6 @@ class ViewController: UIViewController {
             alert.addAction(ok)
             present(alert, animated: true, completion: nil)
         }
-        
-//        textFieldUserName.text = myName
     }
     
     @IBAction func forgotUsername(_ sender: Any) {
@@ -59,7 +57,6 @@ class ViewController: UIViewController {
     
     @IBAction func textFieldEntered(_ sender: UITextField) {
         myName = String(textFieldUserName.text!)
-//        print("myDigit = \(myName)")
      }
     
 }
@@ -67,12 +64,15 @@ class ViewController: UIViewController {
 extension ViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        textFieldUserName.resignFirstResponder()
+        textFieldPassword.resignFirstResponder()
+        
+        return true
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        view.endEditing(true) // Скрывает клавиатуру, вызванную для любого объекта
+        view.endEditing(true)
     }
     
 }
